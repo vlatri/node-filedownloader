@@ -1,0 +1,26 @@
+{
+  "name": "filedownloader",
+  "version": "1.0.0",
+  "description": "makes downloading very easy",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "author": "Oussama Barkouki",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "mkdirp": "^0.5.1",
+    "urlencode": "^1.1.0",
+    "valid-url": "^1.0.9"
+  },
+  "keywords": [
+      "downloads",
+      "downloading",
+      "stream",
+      "filedownloading",
+      "downloader",
+      "file",
+      "request",
+      "http"
+  ]
+}
