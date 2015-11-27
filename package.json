@@ -21,6 +21,7 @@
       "downloader",
       "file",
       "request",
-      "http"
+      "http",
+      "file-downloader"
   ]
 }

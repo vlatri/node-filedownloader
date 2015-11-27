@@ -31,7 +31,7 @@ module.exports = Downloader = function (options) {
             var dataWritten = self.stream.bytesWritten,
                 pr = parseFloat((dataWritten * 100) / self.fileinfo.filesize).toFixed(1),
                 size = self.fileinfo.filesize;
-            self.emit("progress", {progress: pr, dataWritten: dataWritten, filzeSize: size});
+            self.emit("progress", {progress: pr, dataWritten: dataWritten, filesize: size});
         });
 
         dw.pipe(self.stream);
