@@ -75,6 +75,7 @@ npm test
 
 ## Dependencies
 
+- [request](https://github.com/request/request): Simplified HTTP request client.
 - [mkdirp](https://github.com/substack/node-mkdirp): Recursively mkdir, like `mkdir -p`
 - [urlencode](https://github.com/node-modules/urlencode): encodeURIComponent with charset
 - [valid-url](https://github.com/ogt/valid-url): URI validation functions

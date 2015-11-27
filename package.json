@@ -1,6 +1,6 @@
 {
   "name": "filedownloader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "makes downloading very easy",
   "main": "index.js",
   "scripts": {
@@ -10,18 +10,19 @@
   "license": "GPL-3.0",
   "dependencies": {
     "mkdirp": "^0.5.1",
+    "request": "^2.67.0",
     "urlencode": "^1.1.0",
     "valid-url": "^1.0.9"
   },
   "keywords": [
-      "downloads",
-      "downloading",
-      "stream",
-      "filedownloading",
-      "downloader",
-      "file",
-      "request",
-      "http",
-      "file-downloader"
+    "downloads",
+    "downloading",
+    "stream",
+    "filedownloading",
+    "downloader",
+    "file",
+    "request",
+    "http",
+    "file-downloader"
   ]
 }
