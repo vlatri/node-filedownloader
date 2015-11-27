@@ -31,7 +31,7 @@ and you can resume it by:
 ```
 ### Setting event handlers
 #### 'start': download started
-    The `start` event is emitted just after the download starts
+The `start` event is emitted just after the download starts
     
 ```js
     Dl.on("start", function(){
@@ -39,26 +39,28 @@ and you can resume it by:
     });
 ```
 #### 'progress': progress information
-    It is emitted with an object argument with the following keys:
+
+The `progress` Event is emitted with an object argument with the following keys:
     
-    * `dataWritten`: size of downloaded data in bytes
-    * `filesize`: size of the target file in bytes
-    * `progress`: an estimation of the progress percentage
+* `dataWritten`: size of downloaded data in bytes
+* `filesize`: size of the target file in bytes
+* `progress`: an estimation of the progress percentage
 
 ```js
     Dl.on("progress", function(progress){
-       console.log('Downloaded: ' + progress.percent + '%); 
+       console.log('Downloaded: ' + progress.percent + '%'); 
     });
 ```
 #### 'error': error occurred
-    The `error` event is emitted when an error occurs
+The `error` event is emitted when an error occurs
+
 ```js
     Dl.on("error", function(err){
        console.log('Some error occurred:' + err); 
     });
 ```
 #### 'end': Downloading finished
-    The `end` event is emitted when Downloading has finished.
+The `end` event is emitted when Downloading has finished.
     
 ```js
     Dl.on("end", function(){
