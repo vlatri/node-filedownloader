@@ -15,7 +15,7 @@ Then:
         console.log(progress); 
     });
 ```
-The Downloader function accept an object that can take:
+The Downloader function accepts an object that can take:
 
 * `url` url to Download from
 * `saveas` File name to be saved as ex( audio.mp3)
