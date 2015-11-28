@@ -15,6 +15,12 @@ Then:
         console.log(progress); 
     });
 ```
+The Downloader function accept an object that can take:
+
+* `url` url to Download from
+* `saveas` File name to be saved as ex( audio.mp3)
+* `saveto` Folder to be saved in
+
 The progress event will return :
 ```js
     { progress: '1.3', dataWritten: 376072, filesize: '29828970' } //just an example of the ouput
