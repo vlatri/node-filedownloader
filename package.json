@@ -1,24 +1,24 @@
 {
-    "name": "filedownloader",
-    "version": "1.0.1",
-    "description": "makes downloading very easy",
-    "main": "index.js",
-    "scripts": {
-        "test": "node test"
-    },
-    "author": "Oussama Barkouki",
-    "license": "GPL-3.0",
-    "dependencies": {
-        "mkdirp": "^0.5.1",
-        "request": "^2.67.0",
-        "urlencode": "^1.1.0",
-        "valid-url": "^1.0.9"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/oussama1598/node-filedownloader.git"
-    },
-    "keywords": [
+  "name": "filedownloader",
+  "version": "1.0.2",
+  "description": "makes downloading very easy",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "author": "Oussama Barkouki",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "mkdirp": "^0.5.1",
+    "request": "^2.67.0",
+    "urlencode": "^1.1.0",
+    "valid-url": "^1.0.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oussama1598/node-filedownloader.git"
+  },
+  "keywords": [
     "downloads",
     "downloading",
     "stream",
@@ -29,8 +29,8 @@
     "http",
     "file-downloader"
   ],
-    "bugs": {
-        "url": "https://github.com/oussama1598/node-filedownloader/issues"
-    },
-    "homepage": "https://github.com/oussama1598/node-filedownloader#readme"
+  "bugs": {
+    "url": "https://github.com/oussama1598/node-filedownloader/issues"
+  },
+  "homepage": "https://github.com/oussama1598/node-filedownloader#readme"
 }
