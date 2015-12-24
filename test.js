@@ -3,8 +3,7 @@ var Downloader = require("./index");
 
 var Dl = new Downloader({
     url: "https://www.dropbox.com/s/jogm62357fv9iru/mp3-tagger_1.0-1_i386.deb?dl=1",
-    saveto: "Downloads",
-    saveas: "my.deb"
+    saveto: "Downloads"
 }).on("start", function (){
     console.log("Download Started");
 }).on("error", function(err){
