@@ -1,6 +1,6 @@
 {
   "name": "filedownloader",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "makes downloading very easy",
   "main": "index.js",
   "scripts": {
