@@ -54,7 +54,7 @@ The `progress` Event is emitted with an object argument with the following keys:
 
 ```js
     Dl.on("progress", function(progress){
-       console.log('Downloaded: ' + progress.percent + '%'); 
+       console.log('Downloaded: ' + progress.pregress + '%'); 
     });
 ```
 #### 'error': error occurred
