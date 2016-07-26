@@ -23,7 +23,7 @@ The Downloader function accepts an object that can take:
 
 The progress event will return :
 ```js
-    { progress: '1.3', dataWritten: 376072, filesize: '29828970' } //just an example of the ouput
+    { progress: '1.3', dataWritten: 376072, filesize: '29828970', speed: 'byte/s'} //just an example of the ouput
 ```
 
 ### Controlling The Download
@@ -73,6 +73,9 @@ The `end` event is emitted when Downloading has finished.
        console.log('Download finished'); 
     });
 ```    
+#### What's new
+Now u can get download `speed` from progress event
+
 ## Tests
 
 ```sh
