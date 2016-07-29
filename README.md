@@ -1,5 +1,19 @@
-# node-filedownloader
+# filedownloader
+
+![npm](https://img.shields.io/npm/v/filedownloader.svg) ![license](https://img.shields.io/npm/l/filedownloader.svg) ![github-issues](https://img.shields.io/github/issues/oussama1598/node-filedownloader.svg)  ![Circle CI build status](https://circleci.com/gh/oussama1598/node-filedownloader.svg?style=svg)
+
 makes downloading very easy
+
+![nodei.co](https://nodei.co/npm/filedownloader.png?downloads=true&downloadRank=true&stars=true)
+
+![travis-status](https://img.shields.io/travis/oussama1598/node-filedownloader.svg)
+![stars](https://img.shields.io/github/stars/oussama1598/node-filedownloader.svg)
+![forks](https://img.shields.io/github/forks/oussama1598/node-filedownloader.svg)
+
+![forks](https://img.shields.io/github/forks/oussama1598/node-filedownloader.svg)
+
+![](https://david-dm.org/oussama1598/node-filedownloader/status.svg)
+![](https://david-dm.org/oussama1598/node-filedownloader/dev-status.svg)
 
 ## Quick start
 ```sh
@@ -20,6 +34,8 @@ The Downloader function accepts an object that can take:
 * `url` url to Download from
 * `saveas` File name to be saved as ex( audio.mp3)
 * `saveto` Folder to be saved in
+* `deleteIfExists` Force deleting file if it is excisting (default: false)
+* `resume` Resume file if it is not compelted if false will delete the file and start it again (default: true)
 
 The progress event will return :
 ```js
@@ -51,6 +67,7 @@ The `progress` Event is emitted with an object argument with the following keys:
 * `dataWritten`: size of downloaded data in bytes
 * `filesize`: size of the target file in bytes
 * `progress`: an estimation of the progress percentage
+* `speed`: an estimation of the download speed
 
 ```js
     Dl.on("progress", function(progress){
@@ -74,7 +91,7 @@ The `end` event is emitted when Downloading has finished.
     });
 ```    
 #### What's new
-Now u can get download `speed` from progress event
+Added some functionality to resume file downloading
 
 ## Tests
 
@@ -84,11 +101,23 @@ npm test
 
 ## Dependencies
 
-- [request](https://github.com/request/request): Simplified HTTP request client.
+- [content-disposition](https://github.com/jshttp/content-disposition): Create and parse Content-Disposition header
+- [del](https://github.com/sindresorhus/del): Delete files and folders
+- [file-exists](https://github.com/scottcorgan/file-exists): Check if filepath exists and is a file
 - [mkdirp](https://github.com/substack/node-mkdirp): Recursively mkdir, like `mkdir -p`
+- [request](https://github.com/request/request): Simplified HTTP request client.
 - [urlencode](https://github.com/node-modules/urlencode): encodeURIComponent with charset
 - [valid-url](https://github.com/ogt/valid-url): URI validation functions
 
+
+## Contributing
+
+Contributions welcome; Please submit all pull requests the against master branch. If your pull request contains JavaScript patches or features, you should include relevant unit tests. Please check the [Contributing Guidelines](contributng.md) for more details. Thanks!
+
+## Author
+
+Oussama Barkouki
+
 ## License
 
-GPL-3.0
+ - **GPL-3.0** : [http://opensource.org/licenses/GPL-3.0](http://opensource.org/licenses/GPL-3.0)

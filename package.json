@@ -1,17 +1,20 @@
 {
   "name": "filedownloader",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "makes downloading very easy",
   "main": "index.js",
   "scripts": {
-    "test": "node test"
+    "test": "node test",
+    "readme": "node ./node_modules/.bin/node-readme"
   },
   "author": "Oussama Barkouki",
   "license": "GPL-3.0",
   "dependencies": {
     "content-disposition": "^0.5.0",
+    "del": "^2.2.1",
+    "file-exists": "^1.0.0",
     "mkdirp": "^0.5.1",
-    "request": "^2.67.0",
+    "request": "^2.74.0",
     "urlencode": "^1.1.0",
     "valid-url": "^1.0.9"
   },
