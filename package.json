@@ -11,10 +11,12 @@
   "license": "GPL-3.0",
   "dependencies": {
     "content-disposition": "^0.5.0",
-    "del": "^2.2.1",
+    "del": "^2.2.2",
     "file-exists": "^1.0.0",
     "mkdirp": "^0.5.1",
+    "q": "^1.4.1",
     "request": "^2.74.0",
+    "underscore": "^1.8.3",
     "urlencode": "^1.1.0",
     "valid-url": "^1.0.9"
   },

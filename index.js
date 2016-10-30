@@ -1,13 +1,12 @@
-var request = require("request"),
-    fs = require("fs"),
-    util = require('util'),
-    EventEmitter = require('events'),
-    utils = require('./lib/util'),
-    fileExists = require('file-exists'),
-    path = require("path"),
-    del = require("del");
+'use strict';
+const request = require("request")
+const fs = require("fs")
+const util = require('util')
+const EventEmitter = require('events')
+const utils = require('./lib/util')
+const path = require("path")
 
-module.exports = Downloader = function(options) {
+let Downloader = function(options) {
     EventEmitter.call(this);
     var self = this,
         defaultOpt = {
@@ -17,86 +16,50 @@ module.exports = Downloader = function(options) {
             deleteIfExists: false,
             resume: true
         };
-    options = utils.xtend(options, defaultOpt) || defaultOpt;
+    self.options = utils.xtend(defaultOpt, options);
 
-    if (!options.url) this.emit("error", "No url specified");
-    if (!utils.ValidUrl(options.url)) this.emit("error", "Not a valid Url");
-    options.saveto = (!options.saveto) ? __dirname : utils.checkDir.call(self, options.saveto);
-
-    utils.getonlineInfo(options.url, function(res) {
-        self.fileinfo = utils.getinfo(options.saveas, res);
-
-        self.filePath = path.join(options.saveto, self.fileinfo.saveas);
-
-        if (fileExists(self.filePath)) {
-            if (options.deleteIfExists) {
-                utils.fileDelete(self.filePath, function() {
-                    down();
-                });
-            } else {
-                var fileSizeInBytes = utils.getFilesize(self.filePath);
-                len = parseFloat(self.fileinfo.filesize);
-                if (options.resume) {
-                    if (fileSizeInBytes === len) {
-                        self.emit("end");
-                    } else {
-                        down("bytes=" + fileSizeInBytes + "-" + len);
-                    }
-                } else {
-                    utils.fileDelete(self.filePath, function() {
-                        down();
-                    });
-                }
-            }
-        } else {
-            down();
-        }
-    });
-
-    var down = function(rn) {
-        var head = rn ? { Range: rn } : {};
-        var dw = request.get(options.url, { headers: head })
-            .on("response", function(res) {
-                var previous = 0,
-                    now = 0,
-                    speed = 0;
-
-                self.int = setInterval(function() {
-                    speed = now - previous;
-                    previous = now;
-                }, 1000);
-
-                self.stream = fs.createWriteStream(self.filePath, { flags: 'a' }).on("pipe", function() {
-                    self.emit("start");
-                }).on("finish", function() {
-                    clearInterval(self.int);
-                    self.emit("end");
-                }).on("error", function(err) {
-                    self.emit("error", err)
-                }).on("drain", function(e) {
-                    var dataWritten = utils.getFilesize(self.filePath),
-                        pr = parseFloat((dataWritten * 100) / self.fileinfo.filesize).toFixed(1),
-                        size = self.fileinfo.filesize;
-                    now = dataWritten;
-                    self.emit("progress", { progress: pr, dataWritten: dataWritten, filesize: size, speed: speed });
-                });
-
-                dw.pipe(self.stream);
-            });
+    if (!self.options.url) {
+        this.emit("error", "No url specified");
+        return this
     }
+
+    console.log(self.options)
+
+    if (!utils.ValidUrl(options.url)) {
+        this.emit("error", "Not a valid Url");
+        return this;
+    }
+
+
+    self.options.saveto = (!self.options.saveto) ? process.cwd() : utils.checkDir.call(self, self.options.saveto);
+
+    utils.getonlineInfo(self.options.url).then(res => {
+
+        self.fileinfo = utils.getinfo(self.options.saveas, res);
+        self.options.saveas = self.fileinfo.saveas;
+        self.filePath = path.join(self.options.saveto, self.fileinfo.saveas);
+
+        utils.checkBeforeDownload(self, self.options).then(rn => {
+            if (!rn) {
+                utils.download(self);
+            } else { utils.download(self, rn); }
+        });
+    });
 }
 
 
 Downloader.prototype.pause = function() {
-    if (this.stream) {
-        this.stream.cork();
+    if (this.curl) {
+        this.curl.kill();
     }
 };
 
 Downloader.prototype.resume = function() {
-    if (this.stream) {
-        this.stream.uncork();
+    if (this.curl) {
+        utils.download(this, utils.getFilesize(this.filePath), true)
     }
 };
 
 util.inherits(Downloader, EventEmitter);
+
+module.exports = Downloader;
