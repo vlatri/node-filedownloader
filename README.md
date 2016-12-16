@@ -1,8 +1,8 @@
 # filedownloader
 
-![npm](https://img.shields.io/npm/v/filedownloader.svg) ![license](https://img.shields.io/npm/l/filedownloader.svg) ![github-issues](https://img.shields.io/github/issues/oussama1598/node-filedownloader.svg)  ![Circle CI build status](https://circleci.com/gh/oussama1598/node-filedownloader.svg?style=svg)
+![npm](https://img.shields.io/npm/v/filedownloader.svg) ![license](https://img.shields.io/npm/l/filedownloader.svg) ![github-issues](https://img.shields.io/github/issues/oussama1598/node-filedownloader.svg)
 
-makes downloading very easy
+a small module for easy downloading using the power of curl combined with node js
 
 ![nodei.co](https://nodei.co/npm/filedownloader.png?downloads=true&downloadRank=true&stars=true)
 
@@ -10,10 +10,15 @@ makes downloading very easy
 ![stars](https://img.shields.io/github/stars/oussama1598/node-filedownloader.svg)
 ![forks](https://img.shields.io/github/forks/oussama1598/node-filedownloader.svg)
 
-![forks](https://img.shields.io/github/forks/oussama1598/node-filedownloader.svg)
-
 ![](https://david-dm.org/oussama1598/node-filedownloader/status.svg)
-![](https://david-dm.org/oussama1598/node-filedownloader/dev-status.svg)
+
+## Note
+this module requires curl to be present in your system path. if not please check those links 
+
+[Linux](http://askubuntu.com/questions/259681/the-program-curl-is-currently-not-installed)
+[Windows](http://callejoabel.blogspot.com/2013/09/making-curl-work-on-windows-7.html)
+[Mac Os](http://macappstore.org/curl/)
+
 
 ## Quick start
 ```sh
@@ -32,10 +37,10 @@ Then:
 The Downloader function accepts an object that can take:
 
 * `url` url to Download from
-* `saveas` File name to be saved as ex( audio.mp3)
+* `saveas` Filename to be saved as ex( audio.mp3)
 * `saveto` Folder to be saved in
-* `deleteIfExists` Force deleting file if it is excisting (default: false)
-* `resume` Resume file if it is not compelted if false will delete the file and start it again (default: true)
+* `deleteIfExists` Delete file if it does exist (default: false)
+* `resume` Resume file if it's not completed, if false will delete the file and start it again (default: true)
 
 The progress event will return :
 ```js
@@ -91,7 +96,8 @@ The `end` event is emitted when Downloading has finished.
     });
 ```    
 #### What's new
-Added some functionality to resume file downloading
+Switched from request to curl
++Some bugs are fixed
 
 ## Tests
 
@@ -105,7 +111,9 @@ npm test
 - [del](https://github.com/sindresorhus/del): Delete files and folders
 - [file-exists](https://github.com/scottcorgan/file-exists): Check if filepath exists and is a file
 - [mkdirp](https://github.com/substack/node-mkdirp): Recursively mkdir, like `mkdir -p`
+- [q](https://github.com/kriskowal/q): A library for promises (CommonJS/Promises/A,B,D)
 - [request](https://github.com/request/request): Simplified HTTP request client.
+- [underscore](https://github.com/jashkenas/underscore): JavaScript&#39;s functional programming helper library.
 - [urlencode](https://github.com/node-modules/urlencode): encodeURIComponent with charset
 - [valid-url](https://github.com/ogt/valid-url): URI validation functions
 

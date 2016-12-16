@@ -1,11 +1,10 @@
 {
   "name": "filedownloader",
   "version": "1.1.0",
-  "description": "makes downloading very easy",
+  "description": "a small module for easy downloading using the power of curl combined with node js",
   "main": "index.js",
   "scripts": {
-    "test": "node test",
-    "readme": "node ./node_modules/.bin/node-readme"
+    "test": "node example"
   },
   "author": "Oussama Barkouki",
   "license": "GPL-3.0",
@@ -27,6 +26,8 @@
   "keywords": [
     "downloads",
     "downloading",
+    "download",
+    "url",
     "stream",
     "filedownloading",
     "downloader",

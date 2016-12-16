@@ -1,5 +1,4 @@
 'use strict';
-const request = require("request")
 const fs = require("fs")
 const util = require('util')
 const EventEmitter = require('events')
@@ -22,8 +21,6 @@ let Downloader = function(options) {
         this.emit("error", "No url specified");
         return this
     }
-
-    console.log(self.options)
 
     if (!utils.ValidUrl(options.url)) {
         this.emit("error", "Not a valid Url");
