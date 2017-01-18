@@ -2,7 +2,7 @@ var Downloader = require("./");
 
 
 var Dl = new Downloader({
-    url: "http://www.youtube-mp3.org/get?video_id=xQCOs9eb1Xc&ts_create=1481919124&r=MTA1LjE1NS45NS4xNDk%3D&h2=0c99da6d164cd82187d49f337ef0d0d9&s=166491",
+    url: "http://quotesofboss.com/boss/b5ul8tby0s8-seth-doyle.jpg",
     saveto: "Downloads",
     deleteIfExists: true
 }).on("start", function (){

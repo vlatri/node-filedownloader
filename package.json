@@ -1,6 +1,6 @@
 {
   "name": "filedownloader",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "a small module for easy downloading using the power of curl combined with node js",
   "main": "index.js",
   "scripts": {
