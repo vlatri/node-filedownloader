@@ -40,6 +40,8 @@ let Downloader = function(options) {
             if (!rn) {
                 utils.download(self);
             } else { utils.download(self, rn); }
+        }).catch(err => {
+            if(err) self.emit("error", err);
         });
     });
 }
