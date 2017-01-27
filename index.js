@@ -18,12 +18,16 @@ let Downloader = function(options) {
     self.options = utils.xtend(defaultOpt, options);
 
     if (!self.options.url) {
-        this.emit("error", "No url specified");
-        return this
+        setImmediate(function() {
+            self.emit('error', 'No url specified');
+        });
+        return this;
     }
 
     if (!utils.ValidUrl(options.url)) {
-        this.emit("error", "Not a valid Url");
+        setImmediate(function() {
+            self.emit('error', 'Not a valid Url!');
+        });
         return this;
     }
 
@@ -41,7 +45,7 @@ let Downloader = function(options) {
                 utils.download(self);
             } else { utils.download(self, rn); }
         }).catch(err => {
-            if(err) self.emit("error", err);
+            if (err) self.emit("error", err);
         });
     });
 }
