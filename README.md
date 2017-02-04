@@ -96,8 +96,7 @@ The `end` event is emitted when Downloading has finished.
     });
 ```    
 #### What's new
-Switched from request to curl
-+Some bugs are fixed
+fixed: an error when the server do not send the file at all, but still curl create it
 
 ## Tests
 
