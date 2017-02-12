@@ -96,7 +96,7 @@ The `end` event is emitted when Downloading has finished.
     });
 ```    
 #### What's new
-fixed: an error when the server do not send the file at all, but still curl create it
+now when checking the head gets a status code of 200 it emits an error event
 
 ## Tests
 
