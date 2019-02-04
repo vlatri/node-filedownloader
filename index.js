@@ -35,6 +35,7 @@ let Downloader = function(options) {
     self.options.saveto = (!self.options.saveto) ? process.cwd() : utils.checkDir.call(self, self.options.saveto);
 
     utils.getonlineInfo(self.options.url).then(res => {
+        if(!res) return this.emit("error", "Could not get a response")
         if(res.statusCode !== 200) return this.emit("error", `Http error code ${res.statusCode}`);
         self.fileinfo = utils.getinfo(self.options.saveas, res);
         self.options.saveas = self.fileinfo.saveas;
